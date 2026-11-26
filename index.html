@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nine Lives Club · Nine lives. One club.</title>
-<meta name="description" content="Nine Lives Club: one-of-one black cats from nine worlds on Robinhood Chain. 777 max supply. Phase 1 opens 128 cats, paid in ETH.">
+<meta name="description" content="Nine Lives Club: one-of-one black cats from nine worlds on Solana. 777 max supply. Phase 1 opens 128 cats, paid in SOL.">
 <link rel="icon" href="img/28.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -142,6 +142,7 @@ nav .btn{padding:12px 22px;font-size:13px;letter-spacing:1px;text-transform:uppe
 .buy .bp small{display:block;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim)}
 .buy .bp b{display:flex;align-items:center;gap:8px;font-family:Anton;font-weight:400;font-size:28px;line-height:1.1}
 .eth{width:.62em;height:1em;fill:currentColor;flex:0 0 auto}
+.sol{width:.95em;height:.75em;fill:currentColor;flex:0 0 auto}
 .buy .bp .cur{font:700 12px "Space Grotesk";letter-spacing:2px;color:var(--mute);font-style:normal;align-self:flex-end;margin-bottom:5px}
 .buy .qty{display:flex;align-items:center;gap:12px;margin:0 6px;padding-left:16px;border-left:1px solid var(--line)}
 .buy .qty button{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);font-size:18px;transition:.3s}
@@ -634,15 +635,15 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
   <div class="stage">
   <div class="now"><small>Now showing</small><b>The Ghostly Ride</b><span>Episode 1 · Night Highway</span></div>
   <div class="copy">
-    <div class="badge"><span class="s">S01</span><span class="t">Robinhood Chain · Phase 1 · 128 cats</span></div>
+    <div class="badge"><span class="s">S01</span><span class="t">Solana · Phase 1 · 128 cats</span></div>
     <h1 class="an"><span class="l"><span>Nine</span></span><span class="l"><span><em>lives.</em></span></span><span class="l"><span>One club.</span></span></h1>
     <p class="lead">One-of-one black cats from nine worlds. Phase 1 opens the first 128 of 777. Nine are public — the other 119 stay sealed until the reveal, so you find out which one is yours after you mint.</p>
     <div class="buy" id="buy">
-      <div class="bp"><small>Price</small><b><svg class="eth" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg><span id="price">–</span><i class="cur">ETH</i></b></div>
+      <div class="bp"><small>Price</small><b><svg class="sol" viewBox="0 0 398 312" aria-hidden="true"><path d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z"/><path d="M64.6 3.8C67.1 1.4 70.4 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z"/><path d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z"/></svg><span id="price">–</span><i class="cur">SOL</i></b></div>
       <div class="qty"><button id="minus" aria-label="Fewer">−</button><b id="n">1</b><button id="plus" aria-label="More">+</button></div>
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
-    <p class="note" id="mintNote">Each cat is one of one · revealed after mint · <span id="mintCount"><b id="mintN">–</b> / 128 minted · Robinhood Chain</span></p>
+    <p class="note" id="mintNote">Each cat is one of one · revealed after mint · <span id="mintCount"><b id="mintN">–</b> / 128 minted · Solana</span></p>
   </div>
     </div>
 </header>
@@ -685,26 +686,26 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
 <section class="sec" id="cast"><div class="wrap">
   <div class="sh reveal"><div><div class="kick">The nine ambassadors</div><h2 class="an">Meet<br><em>the cast</em></h2></div><p>One public cat from each world. Every character here is part of the collection — click one to see its traits.</p></div>
   <div class="cast reveal" id="castList"></div>
-  <div class="stats reveal"><div><b>777</b><small>Max supply</small></div><div><b>128</b><small>Phase 1</small></div><div><b>9</b><small>Revealed</small></div><div><b>119</b><small>Sealed</small></div><div><b class="g">1/1</b><small>Every cat</small></div><div><b style="display:flex;align-items:center;gap:10px"><svg class="eth" style="width:.5em" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg>ETH</b><small>Network</small></div></div>
+  <div class="stats reveal"><div><b>777</b><small>Max supply</small></div><div><b>128</b><small>Phase 1</small></div><div><b>9</b><small>Revealed</small></div><div><b>119</b><small>Sealed</small></div><div><b class="g">1/1</b><small>Every cat</small></div><div><b style="display:flex;align-items:center;gap:10px"><svg class="sol" style="width:.8em" viewBox="0 0 398 312" aria-hidden="true"><path d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z"/><path d="M64.6 3.8C67.1 1.4 70.4 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z"/><path d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z"/></svg>SOL</b><small>Network</small></div></div>
 </div></section>
 
 <section class="tkn" id="token"><div class="wrap tkn-in">
   <div class="tkn-txt reveal">
     <div class="kick">The club token</div>
     <h2 class="an">Every club<br><em>needs a coin.</em></h2>
-    <p>$NINE is live on Robinhood Chain. Only trust the contract posted on this site.</p>
+    <p>$NINE launches on pump.fun, on Solana. Only trust the contract posted on this site.</p>
     <div class="ca" id="ca">
-      <small>Contract address · Robinhood Chain</small>
+      <small>Contract address · Solana</small>
       <div class="ca-row"><code id="caTxt">Revealed at launch</code><button type="button" id="caBtn" disabled aria-label="Copy contract address">Copy</button></div>
     </div>
   </div>
   <div class="tcard reveal"><div class="in">
-    <div class="pic"><img src="img/golpe/abismo.jpg" alt="Demon cat surrounded by red flames on the Nine Lives token card" loading="lazy"><div class="t"><span>$NINE</span><span>ROBINHOOD CHAIN</span></div></div>
+    <div class="pic"><img src="img/golpe/abismo.jpg" alt="Demon cat surrounded by red flames on the Nine Lives token card" loading="lazy"><div class="t"><span>$NINE</span><span>SOLANA</span></div></div>
     <div class="nm"><b class="an">Nine Lives</b><span>TOKEN</span></div>
     <div class="st">
       <div><span>Supply</span><b>1,000,000,000</b></div>
-      <div><span>Tax</span><b class="g">2%</b></div>
-      <div><span>Liquidity</span><b>Locked forever</b></div>
+      <div><span>Launch</span><b class="g">pump.fun</b></div>
+      <div><span>Network</span><b>Solana</b></div>
     </div>
   </div></div>
 </div></section>
@@ -713,20 +714,20 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
   <div class="stk-head reveal">
     <div class="kick">Holder rewards · Coming with the token</div>
     <h2 class="an">Your cat works<br><em>the night shift.</em></h2>
-    <p>Every trade of the club token sends creator rewards in ETH back to the club. We put them in a staking vault on Robinhood Chain — and the cats are the ones who collect.</p>
+    <p>Every trade of the club token sends creator rewards in SOL back to the club. We put them in a staking vault on Solana — and the cats are the ones who collect.</p>
   </div>
   <div class="flow reveal">
-    <div class="fs"><i>01</i><b>Trades</b><span>Every buy and sell of the club token on Pons</span></div>
+    <div class="fs"><i>01</i><b>Trades</b><span>Every buy and sell of the club token on pump.fun</span></div>
     <div class="arr" aria-hidden="true"></div>
-    <div class="fs"><i>02</i><b>Creator rewards</b><span>Paid out in ETH by Pons to the club</span></div>
+    <div class="fs"><i>02</i><b>Creator rewards</b><span>Paid out in SOL by pump.fun to the club</span></div>
     <div class="arr" aria-hidden="true"></div>
-    <div class="fs"><i>03</i><b>The vault</b><span>Rewards go into the Nine Lives stake on Robinhood Chain</span></div>
+    <div class="fs"><i>03</i><b>The vault</b><span>Rewards go into the Nine Lives stake on Solana</span></div>
     <div class="arr" aria-hidden="true"></div>
-    <div class="fs hl"><i>04</i><b>Holders</b><span>Stake your cat, collect your share in ETH</span></div>
+    <div class="fs hl"><i>04</i><b>Holders</b><span>Stake your cat, collect your share in SOL</span></div>
   </div>
   <div class="stk-cats reveal" aria-hidden="true">
     <img src="img/hd/58.jpg" alt=""><img src="img/hd/7.jpg" alt=""><img src="img/hd/28.jpg" alt=""><img src="img/hd/13.jpg" alt=""><img src="img/hd/55.jpg" alt="">
-    <span>Stake your cat · Collect in ETH</span>
+    <span>Stake your cat · Collect in SOL</span>
   </div>
   <p class="stk-note reveal">Staking opens after the token launch; full details will be published here first. Rewards depend on trading activity and are not guaranteed. Nothing on this site is financial advice.</p>
 </div></section>
@@ -863,7 +864,7 @@ document.querySelectorAll(".cm[data-i]").forEach(b=>b.onclick=()=>openModal(+b.d
 
 // ===== MINT (hero, demo until the contract is live) =====
 // TOKEN CONTRACT: paste the address here on launch day (empty = "Revealed at launch")
-const TOKEN_CA="0x61fe9dF3782C6c516B45Ab972463fB78329453b9";
+const TOKEN_CA="";
 (()=>{const box=document.getElementById("ca"),t=document.getElementById("caTxt"),b=document.getElementById("caBtn");
   const mq=document.getElementById("mq"),strip=document.querySelector(".mq");
   mq.innerHTML=TOKEN_CA?`Token CA: <span class="mq-ca"><span class="ca-full">${TOKEN_CA}</span><span class="ca-short">${TOKEN_CA.slice(0,6)}…${TOKEN_CA.slice(-4)}</span></span> <i class="mq-copy">Copy</i>`:`Token CA: <span class="mq-soon">Revealed at launch</span>`;
@@ -873,69 +874,58 @@ const TOKEN_CA="0x61fe9dF3782C6c516B45Ab972463fB78329453b9";
   t.textContent=TOKEN_CA;t.title=TOKEN_CA;b.disabled=false;
   b.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1600)});
 })();
-// ===== MINT (Nine Lives Club NFT · Robinhood Chain, paid in ETH) =====
-// Paste the NFT contract address here after deploying it from the panel (empty = "Mint opens soon").
-const NFT_ADDRESS="0x36D7eb4495Faa4a7f3D725A1F458B967b01bc83a";
-const RH={chainId:"0x1237",chainName:"Robinhood Chain",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:["https://rpc.mainnet.chain.robinhood.com"],blockExplorerUrls:["https://explorer.mainnet.chain.robinhood.com"]};
-const NFT_ABI=["function mint(uint256) payable","function whitelistMint(uint256) payable","function price() view returns (uint256)","function saleActive() view returns (bool)","function totalSupply() view returns (uint256)","function phaseSupply() view returns (uint256)","function maxPerWallet() view returns (uint256)","function mintedBy(address) view returns (uint256)","function whitelistActive() view returns (bool)","function whitelistPrice() view returns (uint256)","function whitelistMaxPerWallet() view returns (uint256)","function isWhitelisted(address) view returns (bool)","function whitelistMintedBy(address) view returns (uint256)","event Transfer(address indexed from,address indexed to,uint256 indexed tokenId)","error SaleClosed()","error ZeroQuantity()","error PhaseSoldOut()","error WalletLimit()","error WrongPayment()","error NotWhitelisted()"];
-const ERR={SaleClosed:"Mint isn’t open right now.",PhaseSoldOut:"This phase is sold out, or fewer cats are left than you picked.",WalletLimit:"That’s over the limit for your wallet.",WrongPayment:"Payment amount didn’t match the price.",NotWhitelisted:"This wallet isn’t on the whitelist.",ZeroQuantity:"Pick at least one cat."};
-const TOTAL=777,PHASE1=128;let PRICE=0,MAXN=5,n=1,busy=false;
-function paint(){$("#n").textContent=n;$("#price").textContent=PRICE?+(n*PRICE).toFixed(6):"–"}
+// ===== MINT (Nine Lives Club NFT · Solana, paid in SOL · Metaplex Core Candy Machine) =====
+// Paste the Candy Machine address here after creating it in the Solana panel (empty = "Mint opens soon").
+const CANDY_MACHINE="";
+// Whitelist: same Solana wallets as in the panel (needed to build the whitelist proof).
+const WL=[];
+const SOL_RPC="https://solana-rpc.publicnode.com";
+const TOTAL=777,PHASE1=128;let PRICE=0,MAXN=10,CAP=PHASE1,n=1,busy=false;
+function paint(){$("#n").textContent=n;$("#price").textContent=PRICE?+(n*PRICE).toFixed(4):"–"}
 $("#minus").onclick=()=>{n=Math.max(1,n-1);paint()};
 $("#plus").onclick=()=>{n=Math.min(MAXN,n+1);paint()};
 paint();
-let ethersP;
-const loadEthers=()=>ethersP||(ethersP=new Promise((ok,ko)=>{if(window.ethers)return ok(window.ethers);const sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js";sc.onload=()=>ok(window.ethers);sc.onerror=()=>{ethersP=null;ko({friendly:"Couldn’t load the wallet library. Check your connection."})};document.head.appendChild(sc)}));
+let nlcP;
+const loadNLC=()=>nlcP||(nlcP=new Promise((ok,ko)=>{if(window.NLC)return ok(window.NLC);const sc=document.createElement("script");sc.src="/js/nlc-sol.js";sc.onload=()=>ok(window.NLC);sc.onerror=()=>{nlcP=null;ko({friendly:"Couldn’t load the wallet library. Check your connection."})};document.head.appendChild(sc)}));
 const mintBtn=$("#mintBtn"),btnTxt=t=>mintBtn.textContent=t;
-function showCount(ts,ph){$("#mintCount").innerHTML=`<b id="mintN">${ts}</b> / ${ph} minted · Robinhood Chain`}
-async function readPublic(){ // live price + counter: raw eth_call, no library, runs immediately
-  if(!NFT_ADDRESS)return;
-  try{
-    const call=d=>({jsonrpc:"2.0",method:"eth_call",params:[{to:NFT_ADDRESS,data:d},"latest"]});
-    const body=["0xa035b1fe","0x18160ddd","0x7bb997e4","0x453c2310"].map((d,k)=>({...call(d),id:k}));
-    const r=await fetch(RH.rpcUrls[0],{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});
-    const j=(await r.json()).sort((a,b)=>a.id-b.id).map(x=>BigInt(x.result));
-    const [p,ts,ph,mx]=j;
-    PRICE=Number(p)/1e18;MAXN=Math.max(1,Number(mx));n=Math.min(n,MAXN);paint();showCount(ts,ph);
-    if(ts>=ph)btnTxt("Sold out");
+function showCount(ts,ph){$("#mintCount").innerHTML=`<b id="mintN">${ts}</b> / ${ph} minted · Solana`}
+async function readCount(){ // fast counter: raw getAccountInfo, itemsRedeemed = u64 at byte 104
+  const r=await fetch(SOL_RPC,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"getAccountInfo",params:[CANDY_MACHINE,{encoding:"base64",dataSlice:{offset:104,length:8}}]})});
+  const b=atob((await r.json()).result.value.data[0]);let v=0;for(let i=7;i>=0;i--)v=v*256+b.charCodeAt(i);return v;
+}
+async function readPublic(){
+  if(!CANDY_MACHINE)return;
+  try{const ts=await readCount();showCount(ts,CAP);if(ts>=CAP)btnTxt("Sold out")}catch(e){console.warn("count",e)}
+  try{const N=await loadNLC(),st=await N.readState(N.makeUmi(SOL_RPC),CANDY_MACHINE),g=st.public;
+    if(g){PRICE=g.price;MAXN=Math.max(1,g.max||1);CAP=g.cap||PHASE1;n=Math.min(n,MAXN);paint();showCount(st.minted,CAP);btnTxt(st.minted>=CAP?"Sold out":"Mint")}
   }catch(e){console.warn("mint read",e)}
 }
-async function ensureChain(){
-  const id=(await window.ethereum.request({method:"eth_chainId"})).toLowerCase();if(id===RH.chainId)return;
-  try{await window.ethereum.request({method:"wallet_switchEthereumChain",params:[{chainId:RH.chainId}]})}
-  catch(e){if(e.code===4902||/unrecognized|not added/i.test(e.message||""))await window.ethereum.request({method:"wallet_addEthereumChain",params:[RH]});else throw e}
-}
-function niceErr(E,e){
-  if(e?.code==="ACTION_REJECTED"||e?.code===4001||e?.info?.error?.code===4001)return "Cancelled in your wallet. Nothing was charged.";
-  try{const d=e?.data||e?.info?.error?.data||e?.error?.data;if(E&&d){const x=new E.Interface(NFT_ABI).parseError(typeof d==="string"?d:d.data);if(x&&ERR[x.name])return ERR[x.name]}}catch(_){}
-  if(/insufficient funds/i.test(e?.message||""))return "Not enough ETH on Robinhood Chain for this mint + gas.";
-  return e?.shortMessage||e?.reason||"Mint failed. Nothing was charged.";
+function niceErr(e){
+  const m=String(e?.message||e||"");
+  if(e?.code===4001||/reject|declin|cancel/i.test(m))return "Cancelled in your wallet. Nothing was charged.";
+  if(/MaximumRedeemedAmount|CandyMachineEmpty/i.test(m))return "This phase is sold out.";
+  if(/MintNotLive|startDate/i.test(m))return "Mint isn’t open right now.";
+  if(/AllowedMintLimitReached|mintLimit/i.test(m))return "That’s over the limit for your wallet.";
+  if(/NotEnoughSOL|insufficient/i.test(m))return "Not enough SOL for this mint + fees.";
+  if(/AddressNotFoundInAllowedList|MissingAllowedListProof/i.test(m))return "This wallet isn’t on the whitelist.";
+  if(/blockhash|expired|timeout/i.test(m))return "The network was slow and the mint timed out. Check your wallet before trying again.";
+  return "Mint failed. Nothing was charged.";
 }
 mintBtn.onclick=async()=>{
   if(busy)return;
-  if(!NFT_ADDRESS)return toast("Mint opens soon. Follow @clubninelives on X for the date.");
-  if(!window.ethereum){
-    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){location.href="https://metamask.app.link/dapp/"+location.host+location.pathname;return}
-    return toast("Install a wallet (MetaMask, Rabby or Coinbase Wallet) to mint.");
-  }
-  busy=true;let E;
+  if(!CANDY_MACHINE)return toast("Mint opens soon. Follow @clubninelives on X for the date.");
+  busy=true;
   try{
-    E=await loadEthers();btnTxt("Connecting…");
-    await window.ethereum.request({method:"eth_requestAccounts"});await ensureChain();
-    const pr=new E.BrowserProvider(window.ethereum),sg=await pr.getSigner(),me=await sg.getAddress(),c=new E.Contract(NFT_ADDRESS,NFT_ABI,sg);
-    const [sale,wlOn,wl,wlP,wlMax,wlMinted,p,mx,mine,ts,ph]=await Promise.all([c.saleActive(),c.whitelistActive(),c.isWhitelisted(me),c.whitelistPrice(),c.whitelistMaxPerWallet(),c.whitelistMintedBy(me),c.price(),c.maxPerWallet(),c.mintedBy(me),c.totalSupply(),c.phaseSupply()]);
-    const q=BigInt(n);let t,label;
-    if(ts+q>ph)throw {friendly:ph>ts?`Only ${ph-ts} left in this phase.`:"This phase is sold out."};
-    if(wl&&!wlOn)throw {friendly:"You’re on the whitelist, but whitelist minting isn’t active yet. Nothing was charged."};
-    if(wl&&wlOn&&wlMinted+q>wlMax&&wlMinted<wlMax)throw {friendly:`Whitelist: you have ${wlMax-wlMinted} left. Lower the amount.`};
-    if(wlOn&&wl&&wlMinted+q<=wlMax){label="Whitelist mint";$("#price").textContent=+E.formatEther(wlP*q);toast(wlP===0n?"Whitelist: free mint (gas only).":`Whitelist price: ${E.formatEther(wlP)} ETH each.`);btnTxt("Confirm in wallet…");t=await c.whitelistMint(q,{value:wlP*q})}
-    else if(sale){if(mine+q>mx)throw {friendly:`Limit is ${mx} per wallet. You’ve minted ${mine}.`};label="Mint";btnTxt("Confirm in wallet…");t=await c.mint(q,{value:p*q})}
-    else throw {friendly:wl&&wlOn?`Your whitelist limit is ${wlMax}. You’ve used ${wlMinted}.`:"Public mint isn’t open yet."};
-    btnTxt("Minting…");toast("Transaction sent. Waiting for Robinhood Chain…");
-    const rc=await t.wait(),iface=new E.Interface(NFT_ABI);
-    const ids=rc.logs.map(l=>{try{return iface.parseLog(l)}catch(_){return null}}).filter(x=>x&&x.name==="Transfer").map(x=>"#"+x.args.tokenId);
-    toast(`${label} done! Welcome to the club ${ids.join(" ")} 🐈‍⬛`);readPublic();
-  }catch(e){toast(e?.friendly||niceErr(E,e));console.warn(e)}
+    btnTxt("Loading…");const N=await loadNLC();
+    if(!N.findWallet()){
+      if(/Android|iPhone|iPad/i.test(navigator.userAgent)){location.href="https://phantom.app/ul/browse/"+encodeURIComponent(location.href)+"?ref="+encodeURIComponent(location.origin);return}
+      throw {friendly:"Install a Solana wallet (Phantom, Solflare or Backpack) to mint."};
+    }
+    btnTxt("Connecting…");const w=await N.connectWallet();
+    const umi=N.makeUmi(SOL_RPC,w.adapter);
+    const r=await N.mint(umi,CANDY_MACHINE,n,WL,s=>{btnTxt(s);if(/Minting/.test(s))toast("Transaction sent. Waiting for Solana…")});
+    toast(r.failed?`${r.label}: ${r.ok} of ${r.ok+r.failed} went through. Welcome to the club 🐈‍⬛`:`${r.label} done! Welcome to the club 🐈‍⬛`);readPublic();
+  }catch(e){toast(e?.friendly||niceErr(e));console.warn(e)}
   finally{busy=false;if(mintBtn.textContent!=="Sold out")btnTxt("Mint")}
 };
 readPublic();setInterval(()=>{if(!document.hidden)readPublic()},30000);

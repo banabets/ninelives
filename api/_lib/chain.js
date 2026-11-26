@@ -1,15 +1,20 @@
-// Minted check against the Nine Lives Club contract on Robinhood Chain (ids are sequential from 1).
-const RPC = "https://rpc.mainnet.chain.robinhood.com";
-const NFT = "0x36D7eb4495Faa4a7f3D725A1F458B967b01bc83a";
+// Minted check against the Nine Lives Club Candy Machine on Solana (Metaplex Core).
+// Hidden settings mint sequentially: asset #N exists once itemsRedeemed >= N.
+// Paste the Candy Machine address below (or set env NLC_CANDY_MACHINE in Vercel).
+const RPC = process.env.SOLANA_RPC || "https://solana-rpc.publicnode.com";
+const CANDY_MACHINE = process.env.NLC_CANDY_MACHINE || "";
 let cache = { at: 0, ts: 0 };
 async function totalSupply(fresh) {
+  if (!CANDY_MACHINE) return 0;
   if (!fresh && Date.now() - cache.at < 15000) return cache.ts;
   const r = await fetch(RPC, { method: "POST", headers: { "content-type": "application/json" },
-    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_call", params: [{ to: NFT, data: "0x18160ddd" }, "latest"] }) });
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "getAccountInfo",
+      params: [CANDY_MACHINE, { encoding: "base64", dataSlice: { offset: 104, length: 8 } }] }) });
   const j = await r.json();
-  if (!j.result) throw new Error("rpc");
-  cache = { at: Date.now(), ts: parseInt(j.result, 16) };
-  return cache.ts;
+  if (!j.result || !j.result.value) throw new Error("rpc");
+  const ts = Number(Buffer.from(j.result.value.data[0], "base64").readBigUInt64LE(0));
+  cache = { at: Date.now(), ts };
+  return ts;
 }
 function parseId(raw) {
   const id = parseInt(String(raw || "").replace(/\.json$|\.jpg$/i, ""), 10);
