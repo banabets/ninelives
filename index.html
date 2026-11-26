@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nine Lives Club · Nine lives. One club.</title>
-<meta name="description" content="Nine Lives Club: 777 one-of-one black cats on Ethereum, from nine worlds. Nine are public, 768 stay sealed until the reveal.">
+<meta name="description" content="Nine Lives Club: one-of-one black cats from nine worlds on Robinhood Chain. 777 max supply. Phase 1 opens 128 cats, paid in ETH.">
 <link rel="icon" href="img/28.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -623,15 +623,15 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
   <div class="stage">
   <div class="now"><small>Now showing</small><b>The Ghostly Ride</b><span>Episode 1 · Night Highway</span></div>
   <div class="copy">
-    <div class="badge"><span class="s">S01</span><span class="t">NFT collection on Ethereum · 777 cats</span></div>
+    <div class="badge"><span class="s">S01</span><span class="t">Robinhood Chain · Phase 1 · 128 cats</span></div>
     <h1 class="an"><span class="l"><span>Nine</span></span><span class="l"><span><em>lives.</em></span></span><span class="l"><span>One club.</span></span></h1>
-    <p class="lead">777 one-of-one black cats from nine worlds. Nine are public. The other 768 stay sealed until the reveal — you find out which one is yours after you mint.</p>
+    <p class="lead">One-of-one black cats from nine worlds. Phase 1 opens the first 128 of 777. Nine are public — the other 119 stay sealed until the reveal, so you find out which one is yours after you mint.</p>
     <div class="buy" id="buy">
       <div class="bp"><small>Price</small><b><svg class="eth" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg><span id="price">0.05</span><i class="cur">ETH</i></b></div>
       <div class="qty"><button id="minus" aria-label="Fewer">−</button><b id="n">1</b><button id="plus" aria-label="More">+</button></div>
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
-    <p class="note">Each cat is one of one · revealed after mint · <span>demo, no wallet connected yet</span></p>
+    <p class="note" id="mintNote">Each cat is one of one · revealed after mint · <span id="mintCount">Paid in ETH on Robinhood Chain</span></p>
   </div>
     </div>
 </header>
@@ -674,7 +674,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
 <section class="sec" id="cast"><div class="wrap">
   <div class="sh reveal"><div><div class="kick">The nine ambassadors</div><h2 class="an">Meet<br><em>the cast</em></h2></div><p>One public cat from each world. Every character here is part of the collection — click one to see its traits.</p></div>
   <div class="cast reveal" id="castList"></div>
-  <div class="stats reveal"><div><b>777</b><small>Total supply</small></div><div><b>9</b><small>Worlds</small></div><div><b>9</b><small>Revealed</small></div><div><b>768</b><small>Sealed</small></div><div><b class="g">1/1</b><small>Every cat</small></div><div><b style="display:flex;align-items:center;gap:10px"><svg class="eth" style="width:.5em" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg>ETH</b><small>Network</small></div></div>
+  <div class="stats reveal"><div><b>777</b><small>Max supply</small></div><div><b>128</b><small>Phase 1</small></div><div><b>9</b><small>Revealed</small></div><div><b>119</b><small>Sealed</small></div><div><b class="g">1/1</b><small>Every cat</small></div><div><b style="display:flex;align-items:center;gap:10px"><svg class="eth" style="width:.5em" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg>ETH</b><small>Network</small></div></div>
 </div></section>
 
 <section class="tkn" id="token"><div class="wrap tkn-in">
@@ -726,7 +726,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
   <div class="txt der">
     <div class="kick">Sealed cat · Abyss</div>
     <h2 class="an"><span class="a">Not all</span><span class="b">are cute.</span></h2>
-    <p>Some of the 768 sealed cats are darker than the nine you see here. You only know yours after the reveal.</p>
+    <p>Some of the sealed cats are darker than the nine you see here. You only know yours after the reveal.</p>
   </div>
 </section>
 
@@ -847,7 +847,7 @@ addEventListener("keydown",e=>{if(!$("#modal").classList.contains("open"))return
 
 // ===== CAST =====
 $("#castList").innerHTML=L.map((l,i)=>`<button class="cm" data-i="${i}" aria-label="${l.an}, ${l.name}"><img src="${HD(l.id)}" alt="${l.an}" loading="lazy"><span class="no">${pad(l.id)}</span><span class="i"><small>${l.name}</small><b>${l.an}</b></span></button>`).join("")
-  +`<div class="cm tba"><div><div class="q">+768</div><b>Sealed</b><p>Sealed until the reveal. You learn which one you got after minting.</p></div></div>`;
+  +`<div class="cm tba"><div><div class="q">+119</div><b>Sealed</b><p>The rest of Phase 1, sealed until the reveal. You learn which one you got after minting.</p></div></div>`;
 document.querySelectorAll(".cm[data-i]").forEach(b=>b.onclick=()=>openModal(+b.dataset.i));
 
 // ===== MINT (hero, demo until the contract is live) =====
@@ -864,12 +864,66 @@ const TOKEN_CA="";
   t.textContent=TOKEN_CA;t.title=TOKEN_CA;b.disabled=false;
   b.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1600)});
 })();
-const TOTAL=777,PRICE=.05,MAXN=5;let n=1;
-function paint(){$("#n").textContent=n;$("#price").textContent=(n*PRICE).toFixed(2)}
+// ===== MINT (Nine Lives Club NFT · Robinhood Chain, paid in ETH) =====
+// Paste the NFT contract address here after deploying it from the panel (empty = "Mint opens soon").
+const NFT_ADDRESS="";
+const RH={chainId:"0x1237",chainName:"Robinhood Chain",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:["https://rpc.mainnet.chain.robinhood.com"],blockExplorerUrls:["https://explorer.mainnet.chain.robinhood.com"]};
+const NFT_ABI=["function mint(uint256) payable","function whitelistMint(uint256) payable","function price() view returns (uint256)","function saleActive() view returns (bool)","function totalSupply() view returns (uint256)","function phaseSupply() view returns (uint256)","function maxPerWallet() view returns (uint256)","function mintedBy(address) view returns (uint256)","function whitelistActive() view returns (bool)","function whitelistPrice() view returns (uint256)","function whitelistMaxPerWallet() view returns (uint256)","function isWhitelisted(address) view returns (bool)","function whitelistMintedBy(address) view returns (uint256)","event Transfer(address indexed from,address indexed to,uint256 indexed tokenId)","error SaleClosed()","error ZeroQuantity()","error PhaseSoldOut()","error WalletLimit()","error WrongPayment()","error NotWhitelisted()"];
+const ERR={SaleClosed:"Mint isn’t open right now.",PhaseSoldOut:"This phase is sold out, or fewer cats are left than you picked.",WalletLimit:"That’s over the limit for your wallet.",WrongPayment:"Payment amount didn’t match the price.",NotWhitelisted:"This wallet isn’t on the whitelist.",ZeroQuantity:"Pick at least one cat."};
+const TOTAL=777,PHASE1=128;let PRICE=.05,MAXN=5,n=1,busy=false;
+function paint(){$("#n").textContent=n;$("#price").textContent=+(n*PRICE).toFixed(4)}
 $("#minus").onclick=()=>{n=Math.max(1,n-1);paint()};
 $("#plus").onclick=()=>{n=Math.min(MAXN,n+1);paint()};
-$("#mintBtn").onclick=()=>toast("Minting isn’t live yet — no wallet connected, nothing was charged.");
 paint();
+let ethersP;
+const loadEthers=()=>ethersP||(ethersP=new Promise((ok,ko)=>{if(window.ethers)return ok(window.ethers);const sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js";sc.onload=()=>ok(window.ethers);sc.onerror=()=>{ethersP=null;ko({friendly:"Couldn’t load the wallet library. Check your connection."})};document.head.appendChild(sc)}));
+const mintBtn=$("#mintBtn"),btnTxt=t=>mintBtn.textContent=t;
+function showCount(ts,ph){$("#mintCount").textContent=`${ts} / ${ph} minted · Robinhood Chain`}
+async function readPublic(){ // live price + counter, no wallet needed
+  if(!NFT_ADDRESS)return;
+  try{const E=await loadEthers(),c=new E.Contract(NFT_ADDRESS,NFT_ABI,new E.JsonRpcProvider(RH.rpcUrls[0],4663,{staticNetwork:true}));
+    const [p,ts,ph,mx]=await Promise.all([c.price(),c.totalSupply(),c.phaseSupply(),c.maxPerWallet()]);
+    PRICE=+E.formatEther(p);MAXN=Math.max(1,Number(mx));n=Math.min(n,MAXN);paint();showCount(ts,ph);
+    if(ts>=ph)btnTxt("Sold out");
+  }catch(e){console.warn("mint read",e)}
+}
+async function ensureChain(){
+  const id=(await window.ethereum.request({method:"eth_chainId"})).toLowerCase();if(id===RH.chainId)return;
+  try{await window.ethereum.request({method:"wallet_switchEthereumChain",params:[{chainId:RH.chainId}]})}
+  catch(e){if(e.code===4902||/unrecognized|not added/i.test(e.message||""))await window.ethereum.request({method:"wallet_addEthereumChain",params:[RH]});else throw e}
+}
+function niceErr(E,e){
+  if(e?.code==="ACTION_REJECTED"||e?.code===4001||e?.info?.error?.code===4001)return "Cancelled in your wallet. Nothing was charged.";
+  try{const d=e?.data||e?.info?.error?.data||e?.error?.data;if(E&&d){const x=new E.Interface(NFT_ABI).parseError(typeof d==="string"?d:d.data);if(x&&ERR[x.name])return ERR[x.name]}}catch(_){}
+  if(/insufficient funds/i.test(e?.message||""))return "Not enough ETH on Robinhood Chain for this mint + gas.";
+  return e?.shortMessage||e?.reason||"Mint failed. Nothing was charged.";
+}
+mintBtn.onclick=async()=>{
+  if(busy)return;
+  if(!NFT_ADDRESS)return toast("Mint opens soon. Follow @clubninelives on X for the date.");
+  if(!window.ethereum){
+    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){location.href="https://metamask.app.link/dapp/"+location.host+location.pathname;return}
+    return toast("Install a wallet (MetaMask, Rabby or Coinbase Wallet) to mint.");
+  }
+  busy=true;let E;
+  try{
+    E=await loadEthers();btnTxt("Connecting…");
+    await window.ethereum.request({method:"eth_requestAccounts"});await ensureChain();
+    const pr=new E.BrowserProvider(window.ethereum),sg=await pr.getSigner(),me=await sg.getAddress(),c=new E.Contract(NFT_ADDRESS,NFT_ABI,sg);
+    const [sale,wlOn,wl,wlP,wlMax,wlMinted,p,mx,mine,ts,ph]=await Promise.all([c.saleActive(),c.whitelistActive(),c.isWhitelisted(me),c.whitelistPrice(),c.whitelistMaxPerWallet(),c.whitelistMintedBy(me),c.price(),c.maxPerWallet(),c.mintedBy(me),c.totalSupply(),c.phaseSupply()]);
+    const q=BigInt(n);let t,label;
+    if(ts+q>ph)throw {friendly:ph>ts?`Only ${ph-ts} left in this phase.`:"This phase is sold out."};
+    if(wlOn&&wl&&wlMinted+q<=wlMax){label="Whitelist mint";btnTxt("Confirm in wallet…");t=await c.whitelistMint(q,{value:wlP*q})}
+    else if(sale){if(mine+q>mx)throw {friendly:`Limit is ${mx} per wallet. You’ve minted ${mine}.`};label="Mint";btnTxt("Confirm in wallet…");t=await c.mint(q,{value:p*q})}
+    else throw {friendly:wl&&wlOn?`Your whitelist limit is ${wlMax}. You’ve used ${wlMinted}.`:"Public mint isn’t open yet."};
+    btnTxt("Minting…");toast("Transaction sent. Waiting for Robinhood Chain…");
+    const rc=await t.wait(),iface=new E.Interface(NFT_ABI);
+    const ids=rc.logs.map(l=>{try{return iface.parseLog(l)}catch(_){return null}}).filter(x=>x&&x.name==="Transfer").map(x=>"#"+x.args.tokenId);
+    toast(`${label} done! Welcome to the club ${ids.join(" ")} 🐈‍⬛`);readPublic();
+  }catch(e){toast(e?.friendly||niceErr(E,e));console.warn(e)}
+  finally{busy=false;if(mintBtn.textContent!=="Sold out")btnTxt("Mint")}
+};
+if(NFT_ADDRESS)setTimeout(readPublic,1200);
 
 // ===== SCENES (triptych) =====
 $("#sceneList").innerHTML=SC.map((s,i)=>`<button class="pn" style="--c:${s.c}" data-i="${i}" aria-label="Scene ${i+1}: ${s.t}"><img src="${SCI(s.f)}" style="object-position:${s.pos}" alt="${s.t}" loading="lazy"><span class="num">${nn(i)}</span><span class="play">▶</span><span class="vt">${s.t}</span><span class="cap"><small>Scene ${nn(i)} · ${s.v}</small><b>${s.t}</b><span>${s.d}</span><em>View full screen →</em></span></button>`).join("");
