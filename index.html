@@ -257,6 +257,30 @@ nav .right{display:flex;align-items:center}
 @media (max-width:1000px){nav .right .btn{display:none}}
 .foot a.ytl{color:var(--cream)}
 
+/* HOLDER REWARDS */
+.stk{position:relative;padding:110px 0 120px;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(255,210,63,.14),transparent 70%)}
+.stk-head{max-width:780px}
+.stk h2{font-size:clamp(58px,7vw,108px);line-height:.86;margin:18px 0 22px}
+.stk h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--cream)}
+.stk-head p{color:var(--mute);font-size:18px;line-height:1.6;max-width:600px}
+.flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr 40px 1fr;align-items:stretch;margin-top:54px}
+.fs{border:1px solid var(--line);border-radius:20px;padding:22px 22px 24px;background:var(--bg2)}
+.fs i{font-style:normal;font-family:Anton,Impact,sans-serif;font-size:22px;color:var(--dim)}
+.fs b{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:28px;text-transform:uppercase;line-height:1;margin:10px 0 10px}
+.fs span{font-size:14px;line-height:1.5;color:var(--mute)}
+.fs.hl{border-color:var(--gold);background:linear-gradient(160deg,#1a1508,#0c0c0c);box-shadow:0 0 60px -20px rgba(255,210,63,.5)}
+.fs.hl i,.fs.hl b{color:var(--gold)}
+.arr{position:relative;align-self:center;height:2px;background:linear-gradient(90deg,transparent,var(--gold));overflow:visible}
+.arr::after{content:"";position:absolute;right:0;top:-4px;border-left:8px solid var(--gold);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.arr::before{content:"";position:absolute;top:-3px;left:0;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:coin 1.8s linear infinite}
+@keyframes coin{from{left:0;opacity:0}20%{opacity:1}to{left:calc(100% - 8px);opacity:0}}
+.stk-cats{display:flex;align-items:center;margin-top:40px}
+.stk-cats img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--bg);margin-right:-16px;box-shadow:0 0 0 1px rgba(255,210,63,.4)}
+.stk-cats span{margin-left:34px;font:700 12px 'Space Grotesk';letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.stk-note{margin-top:30px;font-size:12px;color:var(--dim);max-width:720px;line-height:1.6}
+@media (max-width:1000px){.flow{grid-template-columns:1fr;gap:0}.arr{width:2px;height:28px;justify-self:center;background:linear-gradient(180deg,transparent,var(--gold))}.arr::after{right:-4px;top:auto;bottom:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid var(--gold);border-bottom:0}.arr::before{left:-3px;animation:coinv 1.8s linear infinite}@keyframes coinv{from{top:0;opacity:0}20%{opacity:1}to{top:calc(100% - 8px);opacity:0}}}
+@media (max-width:760px){.stk{padding:70px 0 80px}.stk-head p{font-size:15px}.fs{padding:16px 18px}.fs b{font-size:24px}.stk-cats img{width:48px;height:48px}.stk-cats span{margin-left:28px;font-size:10px;letter-spacing:2px}}
+
 /* HERO */
 .hero{position:relative;height:100vh;min-height:760px;max-height:1100px;overflow:hidden;background:var(--bg)}
 .hero .blur{position:absolute;inset:-80px}
@@ -573,6 +597,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
     <li><a href="#episodes">Scenes</a></li>
     <li><a href="#cast">Cast</a></li>
     <li><a href="#token">Token</a></li>
+    <li><a href="#rewards">Rewards</a></li>
     <li><a href="/market">Market</a></li>
   </ul>
   <div class="right"><a class="yt xl" href="#" aria-label="Nine Lives on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 2.5h3.3l-7.2 8.3 8.5 11.2h-6.7l-5.2-6.9-6 6.9H1.2l7.7-8.8L.8 2.5h6.8l4.7 6.2zm-1.2 17.5h1.8L6.6 4.4H4.6z"/></svg></a><a class="yt" href="https://www.youtube.com/@ninelivesontv" target="_blank" rel="noopener" aria-label="Nine Lives on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.4 3.1z"/></svg></a><a href="#top" class="btn solid">Mint</a>
@@ -656,6 +681,28 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
       <div><span>Liquidity</span><b>Locked forever</b></div>
     </div>
   </div></div>
+</div></section>
+
+<section class="stk" id="rewards"><div class="wrap">
+  <div class="stk-head reveal">
+    <div class="kick">Holder rewards · Coming with the token</div>
+    <h2 class="an">Your cat works<br><em>the night shift.</em></h2>
+    <p>Every trade of the club token sends creator rewards in ETH back to the club. We put them in a staking vault on Robinhood Chain — and the cats are the ones who collect.</p>
+  </div>
+  <div class="flow reveal">
+    <div class="fs"><i>01</i><b>Trades</b><span>Every buy and sell of the club token on Pons</span></div>
+    <div class="arr" aria-hidden="true"></div>
+    <div class="fs"><i>02</i><b>Creator rewards</b><span>Paid out in ETH by Pons to the club</span></div>
+    <div class="arr" aria-hidden="true"></div>
+    <div class="fs"><i>03</i><b>The vault</b><span>Rewards go into the Nine Lives stake on Robinhood Chain</span></div>
+    <div class="arr" aria-hidden="true"></div>
+    <div class="fs hl"><i>04</i><b>Holders</b><span>Stake your cat, collect your share in ETH</span></div>
+  </div>
+  <div class="stk-cats reveal" aria-hidden="true">
+    <img src="img/hd/58.jpg" alt=""><img src="img/hd/7.jpg" alt=""><img src="img/hd/28.jpg" alt=""><img src="img/hd/13.jpg" alt=""><img src="img/hd/55.jpg" alt="">
+    <span>Stake your cat · Collect in ETH</span>
+  </div>
+  <p class="stk-note reveal">Staking opens after the token launch; full details will be published here first. Rewards depend on trading activity and are not guaranteed. Nothing on this site is financial advice.</p>
 </div></section>
 
 <section class="golpe abismo izq" id="abismo" aria-label="Not all of them are cute">
