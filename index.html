@@ -143,6 +143,7 @@ nav .btn{padding:12px 22px;font-size:13px;letter-spacing:1px;text-transform:uppe
 .buy .bp b{display:flex;align-items:center;gap:8px;font-family:Anton;font-weight:400;font-size:28px;line-height:1.1}
 .eth{width:.62em;height:1em;fill:currentColor;flex:0 0 auto}
 .sol{width:.95em;height:.75em;fill:currentColor;flex:0 0 auto}
+.buy .bp small .usd{color:var(--gold);letter-spacing:1.5px}
 .buy .bp .cur{font:700 12px "Space Grotesk";letter-spacing:2px;color:var(--mute);font-style:normal;align-self:flex-end;margin-bottom:5px}
 .buy .qty{display:flex;align-items:center;gap:12px;margin:0 6px;padding-left:16px;border-left:1px solid var(--line)}
 .buy .qty button{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);font-size:18px;transition:.3s}
@@ -639,7 +640,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
     <h1 class="an"><span class="l"><span>Nine</span></span><span class="l"><span><em>lives.</em></span></span><span class="l"><span>One club.</span></span></h1>
     <p class="lead">One-of-one black cats from nine worlds. Phase 1 opens the first 128 of 777. Nine are public — the other 119 stay sealed until the reveal, so you find out which one is yours after you mint.</p>
     <div class="buy" id="buy">
-      <div class="bp"><small>Price</small><b><svg class="sol" viewBox="0 0 398 312" aria-hidden="true"><path d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z"/><path d="M64.6 3.8C67.1 1.4 70.4 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z"/><path d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z"/></svg><span id="price">–</span><i class="cur">SOL</i></b></div>
+      <div class="bp"><small>Price <span class="usd" id="usd"></span></small><b><svg class="sol" viewBox="0 0 398 312" aria-hidden="true"><path d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z"/><path d="M64.6 3.8C67.1 1.4 70.4 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z"/><path d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z"/></svg><span id="price">–</span><i class="cur">SOL</i></b></div>
       <div class="qty"><button id="minus" aria-label="Fewer">−</button><b id="n">1</b><button id="plus" aria-label="More">+</button></div>
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
@@ -880,8 +881,10 @@ const CANDY_MACHINE="";
 // Whitelist: same Solana wallets as in the panel (needed to build the whitelist proof).
 const WL=[];
 const SOL_RPC="https://solana-rpc.publicnode.com";
-const TOTAL=777,PHASE1=128;let PRICE=0,MAXN=10,CAP=PHASE1,n=1,busy=false;
-function paint(){$("#n").textContent=n;$("#price").textContent=PRICE?+(n*PRICE).toFixed(4):"–"}
+const TOTAL=777,PHASE1=128,USD_PRICE=5;let PRICE=0,MAXN=10,CAP=PHASE1,n=1,busy=false,SOLUSD=0;
+// Before the Candy Machine exists we show the target ($5 at today's SOL rate); after, the real on-chain SOL price.
+function paint(){$("#n").textContent=n;const p=PRICE||(SOLUSD?USD_PRICE/SOLUSD:0);$("#price").textContent=p?+(n*p).toFixed(4):"–";$("#usd").textContent=p&&SOLUSD?"· ≈ $"+(n*p*SOLUSD).toFixed(2):""}
+fetch("https://api.coinbase.com/v2/prices/SOL-USD/spot").then(r=>r.json()).then(j=>{SOLUSD=+j.data.amount||0;paint()}).catch(()=>{});
 $("#minus").onclick=()=>{n=Math.max(1,n-1);paint()};
 $("#plus").onclick=()=>{n=Math.min(MAXN,n+1);paint()};
 paint();
