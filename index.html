@@ -296,7 +296,10 @@ nav .right{display:flex;align-items:center}
 
 /* MARQUEE */
 .mq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:20px 0;font-family:Anton;font-size:26px;letter-spacing:3px;color:var(--dim);text-transform:uppercase}
-.mq div{display:inline-block;animation:mq 40s linear infinite}
+.mq #mq{display:inline-block;animation:mq 60s linear infinite;will-change:transform}
+.mq{padding:0!important}
+.mq .run{animation:none!important;display:block;padding:18px 0}
+@media (max-width:760px){.mq{font-size:17px;letter-spacing:2px}.mq .run{padding:12px 0}.mq b{margin:0 14px}.mq #mq{animation-duration:45s}}
 .mq b{color:var(--gold);font-weight:400;margin:0 22px}
 @keyframes mq{to{transform:translateX(-50%)}}
 
