@@ -633,7 +633,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
       <div class="qty"><button id="minus" aria-label="Fewer">−</button><b id="n">1</b><button id="plus" aria-label="More">+</button></div>
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
-    <p class="note" id="mintNote">Each cat is one of one · revealed after mint · <span id="mintCount"><b id="mintN">0</b> / 128 minted · Robinhood Chain</span></p>
+    <p class="note" id="mintNote">Each cat is one of one · revealed after mint · <span id="mintCount"><b id="mintN">–</b> / 128 minted · Robinhood Chain</span></p>
   </div>
     </div>
 </header>
@@ -881,11 +881,15 @@ let ethersP;
 const loadEthers=()=>ethersP||(ethersP=new Promise((ok,ko)=>{if(window.ethers)return ok(window.ethers);const sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js";sc.onload=()=>ok(window.ethers);sc.onerror=()=>{ethersP=null;ko({friendly:"Couldn’t load the wallet library. Check your connection."})};document.head.appendChild(sc)}));
 const mintBtn=$("#mintBtn"),btnTxt=t=>mintBtn.textContent=t;
 function showCount(ts,ph){$("#mintCount").innerHTML=`<b id="mintN">${ts}</b> / ${ph} minted · Robinhood Chain`}
-async function readPublic(){ // live price + counter, no wallet needed
+async function readPublic(){ // live price + counter: raw eth_call, no library, runs immediately
   if(!NFT_ADDRESS)return;
-  try{const E=await loadEthers(),c=new E.Contract(NFT_ADDRESS,NFT_ABI,new E.JsonRpcProvider(RH.rpcUrls[0],4663,{staticNetwork:true}));
-    const [p,ts,ph,mx]=await Promise.all([c.price(),c.totalSupply(),c.phaseSupply(),c.maxPerWallet()]);
-    PRICE=+E.formatEther(p);MAXN=Math.max(1,Number(mx));n=Math.min(n,MAXN);paint();showCount(ts,ph);
+  try{
+    const call=d=>({jsonrpc:"2.0",method:"eth_call",params:[{to:NFT_ADDRESS,data:d},"latest"]});
+    const body=["0xa035b1fe","0x18160ddd","0x7bb997e4","0x453c2310"].map((d,k)=>({...call(d),id:k}));
+    const r=await fetch(RH.rpcUrls[0],{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});
+    const j=(await r.json()).sort((a,b)=>a.id-b.id).map(x=>BigInt(x.result));
+    const [p,ts,ph,mx]=j;
+    PRICE=Number(p)/1e18;MAXN=Math.max(1,Number(mx));n=Math.min(n,MAXN);paint();showCount(ts,ph);
     if(ts>=ph)btnTxt("Sold out");
   }catch(e){console.warn("mint read",e)}
 }
@@ -927,7 +931,7 @@ mintBtn.onclick=async()=>{
   }catch(e){toast(e?.friendly||niceErr(E,e));console.warn(e)}
   finally{busy=false;if(mintBtn.textContent!=="Sold out")btnTxt("Mint")}
 };
-if(NFT_ADDRESS)setTimeout(readPublic,1200);
+readPublic();setInterval(()=>{if(!document.hidden)readPublic()},30000);
 
 // ===== SCENES (triptych) =====
 $("#sceneList").innerHTML=SC.map((s,i)=>`<button class="pn" style="--c:${s.c}" data-i="${i}" aria-label="Scene ${i+1}: ${s.t}"><img src="${SCI(s.f)}" style="object-position:${s.pos}" alt="${s.t}" loading="lazy"><span class="num">${nn(i)}</span><span class="play">▶</span><span class="vt">${s.t}</span><span class="cap"><small>Scene ${nn(i)} · ${s.v}</small><b>${s.t}</b><span>${s.d}</span><em>View full screen →</em></span></button>`).join("");
