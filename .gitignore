@@ -1,0 +1,7 @@
+# backups and local-only files never go to the public site
+*_antes_*.html
+*_backup.html
+*.mudo.mp4
+.DS_Store
+Thumbs.db
+.vercel
