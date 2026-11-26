@@ -150,11 +150,6 @@ nav .btn{padding:12px 22px;font-size:13px;letter-spacing:1px;text-transform:uppe
 .buy .btn{padding:16px 34px;font-size:15px}
 .copy .note{margin-top:14px;font-size:12px;letter-spacing:.5px;color:var(--dim)}
 .copy .note span{color:var(--mute)}
-.hca{display:inline-flex;align-items:center;gap:12px;margin-top:16px;max-width:100%;padding:7px 7px 7px 14px;border-radius:999px;border:1px solid rgba(255,210,63,.4);background:rgba(5,5,5,.6);backdrop-filter:blur(8px);color:var(--cream);cursor:pointer;font-family:'Space Grotesk'}
-.hca small{font:700 10px 'Space Grotesk';letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);flex:0 0 auto}
-.hca code{font:500 13px ui-monospace,Consolas,monospace;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hca i{font:700 10px 'Space Grotesk';font-style:normal;letter-spacing:2px;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--gold);color:#050505;flex:0 0 auto}
-.hca.off{cursor:default}.hca.off code{font:700 11px 'Space Grotesk';letter-spacing:2px;text-transform:uppercase;color:var(--mute)}.hca.off i{background:#1c1c1c;color:var(--dim)}
 @media (max-width:600px){.buy{width:100%;padding:14px}.buy .bp{flex:1}.buy .btn{width:100%;justify-content:center}.copy .note{color:var(--mute);text-shadow:0 1px 8px #000,0 0 18px #000}.copy .note span{color:var(--cream)}}
 
 .now{position:absolute;right:40px;bottom:56px;z-index:3;text-align:right;text-shadow:0 2px 14px #000,0 0 30px #000}
@@ -339,6 +334,8 @@ nav .right{display:flex;align-items:center}
 .mq .run{animation:none!important;display:block;padding:18px 0}
 @media (max-width:760px){.mq{font-size:17px;letter-spacing:2px}.mq .run{padding:12px 0}.mq b{margin:0 14px}.mq #mq{animation-duration:45s}}
 .mq b{color:var(--gold);font-weight:400;margin:0 22px}
+.mq .mq-ca{text-transform:none;color:var(--cream);font-family:ui-monospace,Consolas,monospace;font-weight:700;letter-spacing:1px}
+.mq.live{cursor:pointer}.mq.live:hover #mq{animation-play-state:paused}.mq.live:hover{color:var(--mute)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* LORE */
@@ -635,7 +632,6 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
     <p class="note">Each cat is one of one · revealed after mint · <span>demo, no wallet connected yet</span></p>
-    <button type="button" class="hca off" id="hca" aria-label="Copy token contract address"><small>Token CA</small><code id="hcaTxt">Revealed at launch</code><i id="hcaI">Soon</i></button>
   </div>
     </div>
 </header>
@@ -832,7 +828,7 @@ loopVideo($("#abVid"),"video/abismo.mp4","video/abismo-poster.jpg","Demon cat wi
 
 addEventListener("scroll",()=>{$("#nav").classList.toggle("solid",scrollY>40);if(scrollY<innerHeight)$("#scn").style.translate=`0 ${scrollY*.25}px`},{passive:true});
 
-$("#mq").innerHTML=("777 one-of-one cats<b>✦</b>9 worlds<b>✦</b>9 revealed<b>✦</b>768 sealed until the reveal<b>✦</b>Only on Ethereum<b>✦</b>").repeat(6);
+
 
 // ===== MODAL =====
 let mi=0;
@@ -858,10 +854,13 @@ document.querySelectorAll(".cm[data-i]").forEach(b=>b.onclick=()=>openModal(+b.d
 // TOKEN CONTRACT: paste the address here on launch day (empty = "Revealed at launch")
 const TOKEN_CA="";
 (()=>{const box=document.getElementById("ca"),t=document.getElementById("caTxt"),b=document.getElementById("caBtn");
-  const h=document.getElementById("hca"),ht=document.getElementById("hcaTxt"),hi=document.getElementById("hcaI");
+  const mq=document.getElementById("mq"),strip=document.querySelector(".mq");
+  mq.innerHTML=(TOKEN_CA
+    ?`Token CA<b>✦</b><span class="mq-ca">${TOKEN_CA}</span><b>✦</b>Tap to copy<b>✦</b>`
+    :`Token CA<b>✦</b>Revealed at launch<b>✦</b>Only trust the contract posted on this site<b>✦</b>`).repeat(6);
   if(!TOKEN_CA){box.classList.add("off");return}
-  h.classList.remove("off");ht.textContent=TOKEN_CA.slice(0,6)+"…"+TOKEN_CA.slice(-4);h.title=TOKEN_CA;hi.textContent="Copy";
-  h.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>{hi.textContent="Copied";setTimeout(()=>hi.textContent="Copy",1600)});
+  strip.classList.add("live");strip.title="Copy token contract";strip.setAttribute("role","button");
+  strip.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>toast("Contract copied"));
   t.textContent=TOKEN_CA;t.title=TOKEN_CA;b.disabled=false;
   b.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1600)});
 })();
