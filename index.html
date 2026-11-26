@@ -692,14 +692,14 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
   <div class="tkn-txt reveal">
     <div class="kick">The club token</div>
     <h2 class="an">Every club<br><em>needs a coin.</em></h2>
-    <p>Ticker and contract revealed on launch day. Only trust the contract posted on this site.</p>
+    <p>$NINE is live on Robinhood Chain. Only trust the contract posted on this site.</p>
     <div class="ca" id="ca">
       <small>Contract address · Robinhood Chain</small>
       <div class="ca-row"><code id="caTxt">Revealed at launch</code><button type="button" id="caBtn" disabled aria-label="Copy contract address">Copy</button></div>
     </div>
   </div>
   <div class="tcard reveal"><div class="in">
-    <div class="pic"><img src="img/golpe/abismo.jpg" alt="Demon cat surrounded by red flames on the Nine Lives token card" loading="lazy"><div class="t"><span>$TBA</span><span>ROBINHOOD CHAIN</span></div></div>
+    <div class="pic"><img src="img/golpe/abismo.jpg" alt="Demon cat surrounded by red flames on the Nine Lives token card" loading="lazy"><div class="t"><span>$NINE</span><span>ROBINHOOD CHAIN</span></div></div>
     <div class="nm"><b class="an">Nine Lives</b><span>TOKEN</span></div>
     <div class="st">
       <div><span>Supply</span><b>1,000,000,000</b></div>
@@ -863,7 +863,7 @@ document.querySelectorAll(".cm[data-i]").forEach(b=>b.onclick=()=>openModal(+b.d
 
 // ===== MINT (hero, demo until the contract is live) =====
 // TOKEN CONTRACT: paste the address here on launch day (empty = "Revealed at launch")
-const TOKEN_CA="";
+const TOKEN_CA="0x61fe9dF3782C6c516B45Ab972463fB78329453b9";
 (()=>{const box=document.getElementById("ca"),t=document.getElementById("caTxt"),b=document.getElementById("caBtn");
   const mq=document.getElementById("mq"),strip=document.querySelector(".mq");
   mq.innerHTML=TOKEN_CA?`Token CA: <span class="mq-ca"><span class="ca-full">${TOKEN_CA}</span><span class="ca-short">${TOKEN_CA.slice(0,6)}…${TOKEN_CA.slice(-4)}</span></span> <i class="mq-copy">Copy</i>`:`Token CA: <span class="mq-soon">Revealed at launch</span>`;
