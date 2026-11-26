@@ -227,6 +227,15 @@ nav .btn{padding:12px 22px;font-size:13px;letter-spacing:1px;text-transform:uppe
 .tkn h2{font-size:clamp(60px,7vw,104px);line-height:.86;margin:18px 0 22px}
 .tkn h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--cream)}
 .tkn p{color:var(--mute);font-size:17px;line-height:1.6;max-width:440px}
+.tkn-txt{min-width:0}
+.ca{margin-top:30px;max-width:480px}
+@media (max-width:760px){.ca code{font-size:12px}.ca-row{padding-left:14px}}
+.ca small{display:block;font:700 11px 'Space Grotesk';letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ca-row{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 18px;border:1px solid rgba(255,210,63,.35);border-radius:14px;background:rgba(255,255,255,.03)}
+.ca code{flex:1;min-width:0;font:500 15px ui-monospace,Consolas,monospace;color:var(--cream);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ca.off code{color:var(--dim);font-family:'Space Grotesk';letter-spacing:2px;text-transform:uppercase;font-size:13px;font-weight:700}
+.ca button{flex:0 0 auto;font:700 12px 'Space Grotesk';letter-spacing:2px;text-transform:uppercase;padding:11px 16px;border-radius:10px;border:0;background:var(--gold);color:#050505;cursor:pointer}
+.ca button:disabled{background:#1c1c1c;color:var(--dim);cursor:default}
 .tcard{width:min(420px,100%);margin:0 auto;border-radius:26px;padding:14px;background:linear-gradient(150deg,#ffd23f,#8a6410 40%,#ffd23f 60%,#5a420a);box-shadow:0 40px 100px -30px rgba(255,210,63,.45);transform:rotate(-3deg);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .tcard.reveal.in{transform:rotate(-3deg)}
 .tcard:hover{transform:rotate(0) translateY(-6px)!important}
@@ -671,6 +680,10 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
     <div class="kick">The club token</div>
     <h2 class="an">Every club<br><em>needs a coin.</em></h2>
     <p>Ticker and contract revealed on launch day. Only trust the contract posted on this site.</p>
+    <div class="ca" id="ca">
+      <small>Contract address · Robinhood Chain</small>
+      <div class="ca-row"><code id="caTxt">Revealed at launch</code><button type="button" id="caBtn" disabled aria-label="Copy contract address">Copy</button></div>
+    </div>
   </div>
   <div class="tcard reveal"><div class="in">
     <div class="pic"><img src="img/golpe/abismo.jpg" alt="Demon cat surrounded by red flames on the Nine Lives token card" loading="lazy"><div class="t"><span>$TBA</span><span>ROBINHOOD CHAIN</span></div></div>
@@ -836,6 +849,13 @@ $("#castList").innerHTML=L.map((l,i)=>`<button class="cm" data-i="${i}" aria-lab
 document.querySelectorAll(".cm[data-i]").forEach(b=>b.onclick=()=>openModal(+b.dataset.i));
 
 // ===== MINT (hero, demo until the contract is live) =====
+// TOKEN CONTRACT: paste the address here on launch day (empty = "Revealed at launch")
+const TOKEN_CA="";
+(()=>{const box=document.getElementById("ca"),t=document.getElementById("caTxt"),b=document.getElementById("caBtn");
+  if(!TOKEN_CA){box.classList.add("off");return}
+  t.textContent=TOKEN_CA;t.title=TOKEN_CA;b.disabled=false;
+  b.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1600)});
+})();
 const TOTAL=777,PRICE=.05,MAXN=5;let n=1;
 function paint(){$("#n").textContent=n;$("#price").textContent=(n*PRICE).toFixed(2)}
 $("#minus").onclick=()=>{n=Math.max(1,n-1);paint()};
