@@ -150,6 +150,7 @@ nav .btn{padding:12px 22px;font-size:13px;letter-spacing:1px;text-transform:uppe
 .buy .btn{padding:16px 34px;font-size:15px}
 .copy .note{margin-top:14px;font-size:12px;letter-spacing:.5px;color:var(--dim)}
 .copy .note span{color:var(--mute)}
+.copy .note #mintN{color:var(--gold);font-weight:700}
 @media (max-width:600px){.buy{width:100%;padding:14px}.buy .bp{flex:1}.buy .btn{width:100%;justify-content:center}.copy .note{color:var(--mute);text-shadow:0 1px 8px #000,0 0 18px #000}.copy .note span{color:var(--cream)}}
 
 .now{position:absolute;right:40px;bottom:56px;z-index:3;text-align:right;text-shadow:0 2px 14px #000,0 0 30px #000}
@@ -552,7 +553,8 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
   .copy{top:auto!important;bottom:170px;left:16px!important;right:16px;width:auto;transform:none}
   .hero h1{font-size:clamp(46px,14vw,64px);margin:12px 0 12px}
   .lead{font-size:14px;margin-bottom:0;max-width:none}
-  .copy .note{display:none}
+  .copy .note{display:flex;font-size:0;letter-spacing:0;margin-top:12px;padding:0}
+  .copy .note #mintCount{font-size:12px;letter-spacing:1px;color:var(--cream);text-shadow:0 1px 8px #000}
   .badge .t{font-size:10px;letter-spacing:2px}
   /* sticky mint bar above the tab bar */
   .buy{position:fixed!important;left:10px;right:10px;bottom:80px;width:auto!important;z-index:69;padding:9px 9px 9px 16px!important;border-radius:20px;background:rgba(14,14,14,.94)!important;border:1px solid rgba(255,210,63,.35)!important;backdrop-filter:blur(12px);flex-wrap:nowrap!important;gap:10px!important}
@@ -631,7 +633,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
       <div class="qty"><button id="minus" aria-label="Fewer">−</button><b id="n">1</b><button id="plus" aria-label="More">+</button></div>
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
-    <p class="note" id="mintNote">Each cat is one of one · revealed after mint · <span id="mintCount">Paid in ETH on Robinhood Chain</span></p>
+    <p class="note" id="mintNote">Each cat is one of one · revealed after mint · <span id="mintCount"><b id="mintN">0</b> / 128 minted · Robinhood Chain</span></p>
   </div>
     </div>
 </header>
@@ -878,7 +880,7 @@ paint();
 let ethersP;
 const loadEthers=()=>ethersP||(ethersP=new Promise((ok,ko)=>{if(window.ethers)return ok(window.ethers);const sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js";sc.onload=()=>ok(window.ethers);sc.onerror=()=>{ethersP=null;ko({friendly:"Couldn’t load the wallet library. Check your connection."})};document.head.appendChild(sc)}));
 const mintBtn=$("#mintBtn"),btnTxt=t=>mintBtn.textContent=t;
-function showCount(ts,ph){$("#mintCount").textContent=`${ts} / ${ph} minted · Robinhood Chain`}
+function showCount(ts,ph){$("#mintCount").innerHTML=`<b id="mintN">${ts}</b> / ${ph} minted · Robinhood Chain`}
 async function readPublic(){ // live price + counter, no wallet needed
   if(!NFT_ADDRESS)return;
   try{const E=await loadEthers(),c=new E.Contract(NFT_ADDRESS,NFT_ABI,new E.JsonRpcProvider(RH.rpcUrls[0],4663,{staticNetwork:true}));
