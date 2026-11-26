@@ -915,7 +915,9 @@ mintBtn.onclick=async()=>{
     const [sale,wlOn,wl,wlP,wlMax,wlMinted,p,mx,mine,ts,ph]=await Promise.all([c.saleActive(),c.whitelistActive(),c.isWhitelisted(me),c.whitelistPrice(),c.whitelistMaxPerWallet(),c.whitelistMintedBy(me),c.price(),c.maxPerWallet(),c.mintedBy(me),c.totalSupply(),c.phaseSupply()]);
     const q=BigInt(n);let t,label;
     if(ts+q>ph)throw {friendly:ph>ts?`Only ${ph-ts} left in this phase.`:"This phase is sold out."};
-    if(wlOn&&wl&&wlMinted+q<=wlMax){label="Whitelist mint";btnTxt("Confirm in wallet…");t=await c.whitelistMint(q,{value:wlP*q})}
+    if(wl&&!wlOn)throw {friendly:"You’re on the whitelist, but whitelist minting isn’t active yet. Nothing was charged."};
+    if(wl&&wlOn&&wlMinted+q>wlMax&&wlMinted<wlMax)throw {friendly:`Whitelist: you have ${wlMax-wlMinted} left. Lower the amount.`};
+    if(wlOn&&wl&&wlMinted+q<=wlMax){label="Whitelist mint";$("#price").textContent=+E.formatEther(wlP*q);toast(wlP===0n?"Whitelist: free mint (gas only).":`Whitelist price: ${E.formatEther(wlP)} ETH each.`);btnTxt("Confirm in wallet…");t=await c.whitelistMint(q,{value:wlP*q})}
     else if(sale){if(mine+q>mx)throw {friendly:`Limit is ${mx} per wallet. You’ve minted ${mine}.`};label="Mint";btnTxt("Confirm in wallet…");t=await c.mint(q,{value:p*q})}
     else throw {friendly:wl&&wlOn?`Your whitelist limit is ${wlMax}. You’ve used ${wlMinted}.`:"Public mint isn’t open yet."};
     btnTxt("Minting…");toast("Transaction sent. Waiting for Robinhood Chain…");
