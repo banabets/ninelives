@@ -868,7 +868,7 @@ const TOKEN_CA="";
 })();
 // ===== MINT (Nine Lives Club NFT · Robinhood Chain, paid in ETH) =====
 // Paste the NFT contract address here after deploying it from the panel (empty = "Mint opens soon").
-const NFT_ADDRESS="";
+const NFT_ADDRESS="0x36D7eb4495Faa4a7f3D725A1F458B967b01bc83a";
 const RH={chainId:"0x1237",chainName:"Robinhood Chain",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:["https://rpc.mainnet.chain.robinhood.com"],blockExplorerUrls:["https://explorer.mainnet.chain.robinhood.com"]};
 const NFT_ABI=["function mint(uint256) payable","function whitelistMint(uint256) payable","function price() view returns (uint256)","function saleActive() view returns (bool)","function totalSupply() view returns (uint256)","function phaseSupply() view returns (uint256)","function maxPerWallet() view returns (uint256)","function mintedBy(address) view returns (uint256)","function whitelistActive() view returns (bool)","function whitelistPrice() view returns (uint256)","function whitelistMaxPerWallet() view returns (uint256)","function isWhitelisted(address) view returns (bool)","function whitelistMintedBy(address) view returns (uint256)","event Transfer(address indexed from,address indexed to,uint256 indexed tokenId)","error SaleClosed()","error ZeroQuantity()","error PhaseSoldOut()","error WalletLimit()","error WrongPayment()","error NotWhitelisted()"];
 const ERR={SaleClosed:"Mint isn’t open right now.",PhaseSoldOut:"This phase is sold out, or fewer cats are left than you picked.",WalletLimit:"That’s over the limit for your wallet.",WrongPayment:"Payment amount didn’t match the price.",NotWhitelisted:"This wallet isn’t on the whitelist.",ZeroQuantity:"Pick at least one cat."};
