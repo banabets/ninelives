@@ -140,7 +140,6 @@ nav .btn{padding:12px 22px;font-size:13px;letter-spacing:1px;text-transform:uppe
 /* hero mint */
 .buy{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 12px 12px 22px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(5,5,5,.55);backdrop-filter:blur(10px);width:max-content;max-width:100%}
 .buy .bp small{display:block;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim)}
-.buy .bp #usd{color:var(--gold);letter-spacing:1.5px}
 .buy .bp b{display:flex;align-items:center;gap:8px;font-family:Anton;font-weight:400;font-size:28px;line-height:1.1}
 .eth{width:.62em;height:1em;fill:currentColor;flex:0 0 auto}
 .buy .bp .cur{font:700 12px "Space Grotesk";letter-spacing:2px;color:var(--mute);font-style:normal;align-self:flex-end;margin-bottom:5px}
@@ -339,6 +338,14 @@ nav .right{display:flex;align-items:center}
 .mq .mq-ca{text-transform:none;color:var(--cream);font-family:ui-monospace,Consolas,monospace;font-weight:700;letter-spacing:1px}
 .mq.live{cursor:pointer}.mq.live:hover #mq{animation-play-state:paused}.mq.live:hover{color:var(--mute)}
 @keyframes mq{to{transform:translateX(-50%)}}
+/* static Token CA strip (overrides marquee animation) */
+.mq #mq{animation:none!important;display:block;text-align:center;transform:none!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 16px}
+.mq .mq-soon{color:var(--mute)}
+.mq .ca-short{display:none}
+@media (max-width:760px){.mq .ca-full{display:none}.mq .ca-short{display:inline}}
+.mq .mq-copy{font:700 11px 'Space Grotesk';font-style:normal;letter-spacing:2px;text-transform:uppercase;vertical-align:middle;margin-left:14px;padding:7px 12px;border-radius:999px;background:var(--gold);color:#050505}
+@media (max-width:760px){.mq .mq-ca{font-size:12px;letter-spacing:0}.mq .mq-copy{font-size:9px;padding:5px 9px;margin-left:8px}}
+
 
 /* LORE */
 .lore{padding:150px 0 130px;position:relative}
@@ -631,7 +638,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
     <h1 class="an"><span class="l"><span>Nine</span></span><span class="l"><span><em>lives.</em></span></span><span class="l"><span>One club.</span></span></h1>
     <p class="lead">One-of-one black cats from nine worlds. Phase 1 opens the first 128 of 777. Nine are public — the other 119 stay sealed until the reveal, so you find out which one is yours after you mint.</p>
     <div class="buy" id="buy">
-      <div class="bp"><small>Price <span id="usd"></span></small><b><svg class="eth" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg><span id="price">0.00295</span><i class="cur">ETH</i></b></div>
+      <div class="bp"><small>Price</small><b><svg class="eth" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg><span id="price">–</span><i class="cur">ETH</i></b></div>
       <div class="qty"><button id="minus" aria-label="Fewer">−</button><b id="n">1</b><button id="plus" aria-label="More">+</button></div>
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
@@ -859,12 +866,10 @@ document.querySelectorAll(".cm[data-i]").forEach(b=>b.onclick=()=>openModal(+b.d
 const TOKEN_CA="";
 (()=>{const box=document.getElementById("ca"),t=document.getElementById("caTxt"),b=document.getElementById("caBtn");
   const mq=document.getElementById("mq"),strip=document.querySelector(".mq");
-  mq.innerHTML=(TOKEN_CA
-    ?`Token CA<b>✦</b><span class="mq-ca">${TOKEN_CA}</span><b>✦</b>Tap to copy<b>✦</b>`
-    :`Token CA<b>✦</b>Revealed at launch<b>✦</b>Only trust the contract posted on this site<b>✦</b>`).repeat(6);
+  mq.innerHTML=TOKEN_CA?`Token CA: <span class="mq-ca"><span class="ca-full">${TOKEN_CA}</span><span class="ca-short">${TOKEN_CA.slice(0,6)}…${TOKEN_CA.slice(-4)}</span></span> <i class="mq-copy">Copy</i>`:`Token CA: <span class="mq-soon">Revealed at launch</span>`;
   if(!TOKEN_CA){box.classList.add("off");return}
   strip.classList.add("live");strip.title="Copy token contract";strip.setAttribute("role","button");
-  strip.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>toast("Contract copied"));
+  strip.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>{toast("Contract copied");const c=strip.querySelector(".mq-copy");if(c){c.textContent="Copied";setTimeout(()=>c.textContent="Copy",1600)}});
   t.textContent=TOKEN_CA;t.title=TOKEN_CA;b.disabled=false;
   b.onclick=()=>navigator.clipboard.writeText(TOKEN_CA).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1600)});
 })();
@@ -874,9 +879,8 @@ const NFT_ADDRESS="0x36D7eb4495Faa4a7f3D725A1F458B967b01bc83a";
 const RH={chainId:"0x1237",chainName:"Robinhood Chain",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:["https://rpc.mainnet.chain.robinhood.com"],blockExplorerUrls:["https://explorer.mainnet.chain.robinhood.com"]};
 const NFT_ABI=["function mint(uint256) payable","function whitelistMint(uint256) payable","function price() view returns (uint256)","function saleActive() view returns (bool)","function totalSupply() view returns (uint256)","function phaseSupply() view returns (uint256)","function maxPerWallet() view returns (uint256)","function mintedBy(address) view returns (uint256)","function whitelistActive() view returns (bool)","function whitelistPrice() view returns (uint256)","function whitelistMaxPerWallet() view returns (uint256)","function isWhitelisted(address) view returns (bool)","function whitelistMintedBy(address) view returns (uint256)","event Transfer(address indexed from,address indexed to,uint256 indexed tokenId)","error SaleClosed()","error ZeroQuantity()","error PhaseSoldOut()","error WalletLimit()","error WrongPayment()","error NotWhitelisted()"];
 const ERR={SaleClosed:"Mint isn’t open right now.",PhaseSoldOut:"This phase is sold out, or fewer cats are left than you picked.",WalletLimit:"That’s over the limit for your wallet.",WrongPayment:"Payment amount didn’t match the price.",NotWhitelisted:"This wallet isn’t on the whitelist.",ZeroQuantity:"Pick at least one cat."};
-const TOTAL=777,PHASE1=128;let PRICE=.00295,MAXN=5,n=1,busy=false,ETHUSD=0;
-function paint(){$("#n").textContent=n;$("#price").textContent=+(n*PRICE).toFixed(5);$("#usd").textContent=ETHUSD?"· ≈ $"+(n*PRICE*ETHUSD).toFixed(2):""}
-fetch("https://api.coinbase.com/v2/prices/ETH-USD/spot").then(r=>r.json()).then(j=>{ETHUSD=+j.data.amount||0;paint()}).catch(()=>{});
+const TOTAL=777,PHASE1=128;let PRICE=0,MAXN=5,n=1,busy=false;
+function paint(){$("#n").textContent=n;$("#price").textContent=PRICE?+(n*PRICE).toFixed(6):"–"}
 $("#minus").onclick=()=>{n=Math.max(1,n-1);paint()};
 $("#plus").onclick=()=>{n=Math.min(MAXN,n+1);paint()};
 paint();
