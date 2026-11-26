@@ -140,6 +140,7 @@ nav .btn{padding:12px 22px;font-size:13px;letter-spacing:1px;text-transform:uppe
 /* hero mint */
 .buy{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 12px 12px 22px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(5,5,5,.55);backdrop-filter:blur(10px);width:max-content;max-width:100%}
 .buy .bp small{display:block;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim)}
+.buy .bp #usd{color:var(--gold);letter-spacing:1.5px}
 .buy .bp b{display:flex;align-items:center;gap:8px;font-family:Anton;font-weight:400;font-size:28px;line-height:1.1}
 .eth{width:.62em;height:1em;fill:currentColor;flex:0 0 auto}
 .buy .bp .cur{font:700 12px "Space Grotesk";letter-spacing:2px;color:var(--mute);font-style:normal;align-self:flex-end;margin-bottom:5px}
@@ -611,6 +612,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
     <li><a href="#cast">Cast</a></li>
     <li><a href="#token">Token</a></li>
     <li><a href="#rewards">Rewards</a></li>
+    <li><a href="/roadmap">Roadmap</a></li>
     <li><a href="/market">Market</a></li>
   </ul>
   <div class="right"><a class="yt xl" href="https://x.com/clubninelives" target="_blank" rel="noopener" aria-label="Nine Lives on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 2.5h3.3l-7.2 8.3 8.5 11.2h-6.7l-5.2-6.9-6 6.9H1.2l7.7-8.8L.8 2.5h6.8l4.7 6.2zm-1.2 17.5h1.8L6.6 4.4H4.6z"/></svg></a><a class="yt" href="https://www.youtube.com/@ninelivesontv" target="_blank" rel="noopener" aria-label="Nine Lives on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.4 3.1z"/></svg></a><a href="#top" class="btn solid">Mint</a>
@@ -629,7 +631,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
     <h1 class="an"><span class="l"><span>Nine</span></span><span class="l"><span><em>lives.</em></span></span><span class="l"><span>One club.</span></span></h1>
     <p class="lead">One-of-one black cats from nine worlds. Phase 1 opens the first 128 of 777. Nine are public — the other 119 stay sealed until the reveal, so you find out which one is yours after you mint.</p>
     <div class="buy" id="buy">
-      <div class="bp"><small>Price</small><b><svg class="eth" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg><span id="price">0.05</span><i class="cur">ETH</i></b></div>
+      <div class="bp"><small>Price <span id="usd"></span></small><b><svg class="eth" viewBox="0 0 256 417" aria-hidden="true"><path fill-opacity=".95" d="M127.96 0l-2.8 9.5v275.67l2.8 2.79 127.96-75.64z"/><path fill-opacity=".7" d="M127.96 0L0 212.32l127.96 75.64V154.16z"/><path fill-opacity=".95" d="M127.96 312.19l-1.58 1.92v98.2l1.58 4.6L256 236.59z"/><path fill-opacity=".7" d="M127.96 416.9V312.19L0 236.59z"/><path fill-opacity=".45" d="M127.96 287.96l127.96-75.64-127.96-58.16z"/><path fill-opacity=".3" d="M0 212.32l127.96 75.64V154.16z"/></svg><span id="price">0.00295</span><i class="cur">ETH</i></b></div>
       <div class="qty"><button id="minus" aria-label="Fewer">−</button><b id="n">1</b><button id="plus" aria-label="More">+</button></div>
       <button class="btn solid" id="mintBtn">Mint</button>
     </div>
@@ -736,7 +738,7 @@ footer{padding:100px 0 30px;border-top:1px solid var(--line);margin-top:120px;ov
 
 <footer><div class="wrap">
   <div class="foot-big">Nine <span>Lives</span></div>
-  <div class="foot"><span>© 2026 Nine Lives Club</span><span><a class="ytl" href="https://www.youtube.com/@ninelivesontv" target="_blank" rel="noopener">YouTube</a> · <a href="#">Discord</a> · <a href="https://x.com/clubninelives" target="_blank" rel="noopener">X</a> · <a href="#">OpenSea</a></span><span>777 cats · 9 worlds</span></div>
+  <div class="foot"><span>© 2026 Nine Lives Club</span><span><a href="/roadmap">Roadmap</a> · <a class="ytl" href="https://www.youtube.com/@ninelivesontv" target="_blank" rel="noopener">YouTube</a> · <a href="#">Discord</a> · <a href="https://x.com/clubninelives" target="_blank" rel="noopener">X</a> · <a href="#">OpenSea</a></span><span>777 cats · 9 worlds</span></div>
 </div></footer>
 <div class="tabbar" role="navigation" aria-label="Sections"><a href="#top" data-k="home" class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a><a href="#episodes" data-k="scenes"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg>Scenes</a><a href="#cast" data-k="cast"><svg viewBox="0 0 24 24"><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/><path d="M7 4l2 3h6l2-3v6a5 5 0 0 1-10 0z"/></svg>Cast</a><a href="#token" data-k="token"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 10.5q1.5-2 3 0M12.5 10.5q1.5-2 3 0"/><path d="M9 15h6"/></svg>Token</a><a href="/market" data-k="market"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Market</a></div>
 <div class="sheet-dim" id="sheetDim"></div>
@@ -872,8 +874,9 @@ const NFT_ADDRESS="0x36D7eb4495Faa4a7f3D725A1F458B967b01bc83a";
 const RH={chainId:"0x1237",chainName:"Robinhood Chain",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:["https://rpc.mainnet.chain.robinhood.com"],blockExplorerUrls:["https://explorer.mainnet.chain.robinhood.com"]};
 const NFT_ABI=["function mint(uint256) payable","function whitelistMint(uint256) payable","function price() view returns (uint256)","function saleActive() view returns (bool)","function totalSupply() view returns (uint256)","function phaseSupply() view returns (uint256)","function maxPerWallet() view returns (uint256)","function mintedBy(address) view returns (uint256)","function whitelistActive() view returns (bool)","function whitelistPrice() view returns (uint256)","function whitelistMaxPerWallet() view returns (uint256)","function isWhitelisted(address) view returns (bool)","function whitelistMintedBy(address) view returns (uint256)","event Transfer(address indexed from,address indexed to,uint256 indexed tokenId)","error SaleClosed()","error ZeroQuantity()","error PhaseSoldOut()","error WalletLimit()","error WrongPayment()","error NotWhitelisted()"];
 const ERR={SaleClosed:"Mint isn’t open right now.",PhaseSoldOut:"This phase is sold out, or fewer cats are left than you picked.",WalletLimit:"That’s over the limit for your wallet.",WrongPayment:"Payment amount didn’t match the price.",NotWhitelisted:"This wallet isn’t on the whitelist.",ZeroQuantity:"Pick at least one cat."};
-const TOTAL=777,PHASE1=128;let PRICE=.05,MAXN=5,n=1,busy=false;
-function paint(){$("#n").textContent=n;$("#price").textContent=+(n*PRICE).toFixed(4)}
+const TOTAL=777,PHASE1=128;let PRICE=.00295,MAXN=5,n=1,busy=false,ETHUSD=0;
+function paint(){$("#n").textContent=n;$("#price").textContent=+(n*PRICE).toFixed(5);$("#usd").textContent=ETHUSD?"· ≈ $"+(n*PRICE*ETHUSD).toFixed(2):""}
+fetch("https://api.coinbase.com/v2/prices/ETH-USD/spot").then(r=>r.json()).then(j=>{ETHUSD=+j.data.amount||0;paint()}).catch(()=>{});
 $("#minus").onclick=()=>{n=Math.max(1,n-1);paint()};
 $("#plus").onclick=()=>{n=Math.min(MAXN,n+1);paint()};
 paint();
